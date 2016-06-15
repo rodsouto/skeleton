@@ -20,6 +20,10 @@ class RouterFactory
                 $route->allows($routeConfig['method']);
             }
 
+            if (isset($routeConfig['tokens'])) {
+                $route->tokens($routeConfig['tokens']);
+            }
+
         }
 
         return $routerContainer;
