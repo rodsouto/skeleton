@@ -1,3 +1,15 @@
+# Components
+
+* zendframework/zend-servicemanager
+* zendframework/zend-diactoros
+* aura/router
+* aura/session
+* aura/auth
+* doctrine/orm
+* ramsey/uuid
+* beberlei/assert
+* twig/twig
+
 # Config directory
 
 ## config.php
@@ -18,4 +30,4 @@ App\AbstractFactory inyecta automaticamente todas las dependencias a las clases 
 
 # Doctrine ORM
 
-Generacion inicial tabla users bdd: `.\vendor\bin\doctrine orm:schema-tool:update --force`
+`.\vendor\bin\doctrine orm:schema-tool:update --force`
