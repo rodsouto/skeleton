@@ -5,7 +5,7 @@ namespace App\Action;
 use Zend\Diactoros\ServerRequest;
 use App\Response\TwigResponse;
 
-final class Error implements TwigActionInterface {
+final class Error {
 
     private $twigResponse;
 

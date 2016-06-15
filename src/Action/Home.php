@@ -2,20 +2,22 @@
 
 namespace App\Action;
 
+use Aura\Auth\Auth;
 use Zend\Diactoros\ServerRequest;
 use App\Response\TwigResponse;
 
-final class Home implements TwigActionInterface {
+final class Home {
 
     private $twigResponse;
+    private $auth;
 
-    public function __construct(TwigResponse $twigResponse) {
+    public function __construct(TwigResponse $twigResponse, Auth $auth) {
         $this->twigResponse = $twigResponse;
+        $this->auth = $auth;
     }
 
     public function index(ServerRequest $request) {
-
-        return $this->twigResponse->render('home.twig');
+        return $this->twigResponse->render('home.twig', ['user' => $this->auth->getUserData()]);
     }
 
 }

@@ -2,6 +2,12 @@
 
 {% block content %}
 <div class="jumbotron">
-    <h1>Skeleton</h1>
+    <h1>
+        {% if user is not empty %}
+            Hola {{ user.name }}
+        {% else %}
+            Skeleton
+        {% endif %}
+    </h1>
 </div>
 {% endblock %}

@@ -2,6 +2,6 @@
 
 return [
     'abstract_factories' => [
-        App\Action\TwigActionFactory::class
+        App\Action\AbstractActionFactory::class,
     ],
 ];
