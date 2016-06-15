@@ -21,6 +21,7 @@ $config = [
         Aura\Session\Segment::class => App\Session\SegmentFactory::class,
 
         Doctrine\ORM\EntityManager::class => App\Doctrine\EntityManagerFactory::class,
+        App\Doctrine\Finder::class => App\Doctrine\FinderFactory::class,
     ]
 
 ];
