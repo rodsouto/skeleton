@@ -12,6 +12,6 @@ Configuracion de las rutas del sitio
 
 Configuracion de los demas services necesarios
 
-# Actions
+# Dependency Injection
 
-El abstract factory App\Action\AbstractActionFactory inyecta automaticamente todas las dependencias, para esto en el service manager cada clase tiene que estar registrada con su FQCL (Class::class)
+App\AbstractActionFactory inyecta automaticamente todas las dependencias a las clases que estan dentro del namespace App, para esto en el service manager cada clase tiene que estar registrada con su FQCL (Class::class)

@@ -2,7 +2,7 @@
 
 return [
     'abstract_factories' => [
-        App\Action\AbstractActionFactory::class,
+        App\AbstractActionFactory::class,
     ],
     'factories' => [
 
@@ -10,10 +10,7 @@ return [
 
         Aura\Router\RouterContainer::class => App\Router\RouterFactory::class,
 
-        App\Response\TwigResponse::class => App\Response\TwigResponseFactory::class,
-
-        'TwigEnvironment' => App\Twig\TwigFactory::class,
-        App\Twig\RouteExtension::class => App\Twig\RouteExtensionFactory::class,
+        Twig_Environment::class => App\Twig\TwigFactory::class,
 
         Aura\Auth\Auth::class => App\Auth\AuthFactory::class,
         Aura\Auth\Service\LoginService::class => App\Auth\LoginServiceFactory::class,
@@ -24,7 +21,6 @@ return [
         Aura\Session\Segment::class => App\Session\SegmentFactory::class,
 
         Doctrine\ORM\EntityManager::class => App\Doctrine\EntityManagerFactory::class,
-        App\Doctrine\Finder::class => App\Doctrine\FinderFactory::class,
     ]
 
 ];

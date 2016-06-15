@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Action;
+namespace App;
 
 use Interop\Container\ContainerInterface;
 use ReflectionClass;
@@ -35,8 +35,8 @@ class AbstractActionFactory implements AbstractFactoryInterface
 
     public function canCreate(ContainerInterface $container, $requestedName)
     {
-        // Only accept Action classes
-        if (substr($requestedName, 0, 10) == 'App\Action') {
+        // Only accept App classes
+        if (substr($requestedName, 0, 4) == 'App\\') {
             return true;
         }
 
