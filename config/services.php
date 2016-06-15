@@ -8,11 +8,12 @@ return [
 
         'Config' => App\Config\ConfigFactory::class,
 
-        'App\Router' => App\Router\RouterFactory::class,
+        Aura\Router\RouterContainer::class => App\Router\RouterFactory::class,
 
-        \App\Response\TwigResponse::class => App\Response\TwigResponseFactory::class,
+        App\Response\TwigResponse::class => App\Response\TwigResponseFactory::class,
 
         'TwigEnvironment' => App\Twig\TwigFactory::class,
+        App\Twig\RouteExtension::class => App\Twig\RouteExtensionFactory::class,
 
         Aura\Auth\Auth::class => App\Auth\AuthFactory::class,
         Aura\Auth\Service\LoginService::class => App\Auth\LoginServiceFactory::class,

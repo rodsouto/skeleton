@@ -12,6 +12,8 @@ class TwigFactory
         $twig = new \Twig_Environment($loader, array(
             //'cache' => $config['twig']['cache_dir'],
         ));
+
+        $twig->addExtension($services->get(RouteExtension::class));
         
         return $twig;
     }

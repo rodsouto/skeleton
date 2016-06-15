@@ -5,7 +5,7 @@ $services = include __DIR__ . '/../config/init.php';
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 /** @var \Aura\Router\RouterContainer $router */
-$router = $services->get('App\Router');
+$router = $services->get(Aura\Router\RouterContainer::class);
 
 $matcher = $router->getMatcher();
 
