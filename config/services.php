@@ -1,7 +1,9 @@
 <?php
 
-$config = [
-
+return [
+    'abstract_factories' => [
+        App\Action\AbstractActionFactory::class,
+    ],
     'factories' => [
 
         'Config' => App\Config\ConfigFactory::class,
@@ -25,5 +27,3 @@ $config = [
     ]
 
 ];
-
-return array_merge_recursive($config, include __DIR__ . '/actions.php');
