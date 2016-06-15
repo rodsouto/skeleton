@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Ramsey\Uuid\Uuid;
 
 /**
  * @ORM\Entity
@@ -12,8 +13,7 @@ class User
 {
     /**
      * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="guid")
      */
     private $id;
 
@@ -31,6 +31,11 @@ class User
      * @ORM\Column(type="string", name="name", length=50)
      */
     private $name;
+
+    public function __construct()
+    {
+        $this->id = Uuid::uuid4();
+    }
 
     /**
      * @return int

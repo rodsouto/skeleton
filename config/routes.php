@@ -6,5 +6,5 @@ return [
     'login' => ['method' => 'GET', 'path' => '/login', 'handler' => [App\Action\Login\Get::class, 'index']],
     'login-post' => ['method' => 'POST', 'path' => '/login', 'handler' => [App\Action\Login\Post::class, 'index']],
     'logout' => ['method' => 'GET', 'path' => '/logout', 'handler' => [App\Action\Logout::class, 'index']],
-    'user' => ['method' => 'GET', 'path' => '/user/{id}', 'tokens' => ['id' => '\d+'], 'handler' => [App\Action\User::class, 'index']]
+    'user' => ['method' => 'GET', 'path' => '/user/{id}', 'handler' => [App\Action\User::class, 'index']]
 ];
