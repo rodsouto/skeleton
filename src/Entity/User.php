@@ -12,22 +12,26 @@ use Ramsey\Uuid\Uuid;
 class User
 {
     /**
+     * @var string
      * @ORM\Id
      * @ORM\Column(type="guid")
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", name="email", length=50)
+     * @var string
+     * @ORM\Column(type="string", name="email", length=50, unique=true)
      */
     private $email;
 
     /**
+     * @var string
      * @ORM\Column(type="string", name="password", length=60)
      */
     private $password;
 
     /**
+     * @var string
      * @ORM\Column(type="string", name="name", length=50)
      */
     private $name;
@@ -38,11 +42,21 @@ class User
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @param string $id
+     * @return User
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
     }
 
     /**
@@ -54,6 +68,16 @@ class User
     }
 
     /**
+     * @param string $email
+     * @return User
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+        return $this;
+    }
+
+    /**
      * @return string
      */
     public function getPassword()
@@ -62,11 +86,31 @@ class User
     }
 
     /**
+     * @param string $password
+     * @return User
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+        return $this;
+    }
+
+    /**
      * @return string
      */
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @param string $name
+     * @return User
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
     }
 
 }
