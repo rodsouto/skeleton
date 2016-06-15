@@ -3,17 +3,12 @@
 {% block content %}
 <div class="jumbotron">
     <h1>
-        {% if user is not empty %}
-            Hola {{ user.name }}
+        {% if isLoggedIn() %}
+            <a href="{{ route('user', {'id': user.id}) }}">Hola {{ user.name }}</a>
         {% else %}
             Skeleton
         {% endif %}
     </h1>
 </div>
-
-
-{% if entity is not empty %}
-    <pre>{{ entity }}</pre>
-{% endif %}
 
 {% endblock %}

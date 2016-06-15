@@ -16,6 +16,7 @@ class TwigFactory
         ));
 
         $twig->addExtension($services->get(RouteExtension::class));
+        $twig->addExtension($services->get(IsLoggedInExtension::class));
         
         return $twig;
     }

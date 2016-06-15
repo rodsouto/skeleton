@@ -11,21 +11,17 @@ final class Home {
 
     private $twigResponse;
     private $auth;
-    private $finder;
 
-    public function __construct(TwigResponse $twigResponse, Auth $auth, Finder $finder) {
+    public function __construct(TwigResponse $twigResponse, Auth $auth) {
         $this->twigResponse = $twigResponse;
         $this->auth = $auth;
-        $this->finder = $finder;
     }
 
     public function index(ServerRequest $request) {
 
         $userData = $this->auth->getUserData();
 
-        $entity = $userData ? var_export($this->finder->find(\App\Entity\User::class, $userData['id']), true) : false;
-
-        return $this->twigResponse->render('home.twig', ['user' => $userData, 'entity' => $entity]);
+        return $this->twigResponse->render('home.twig', ['user' => $userData]);
     }
 
 }

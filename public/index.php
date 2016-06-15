@@ -23,6 +23,8 @@ $emiter = new \Zend\Diactoros\Response\SapiEmitter();
 
 if ($route) {
 
+    $request = $request->withAttribute('routeParams', $route->attributes);
+
     $controller = $services->get($route->handler[0]);
     $method = $route->handler[1];
 
