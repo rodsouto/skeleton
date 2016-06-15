@@ -2,9 +2,11 @@
 
 namespace App\Auth;
 
+use Zend\ServiceManager\ServiceLocatorInterface;
+
 class AuthFactory
 {
-    public function __invoke($services)
+    public function __invoke(ServiceLocatorInterface $services)
     {
         // force session_start()
         $services->get(\Aura\Session\Session::class);

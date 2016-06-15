@@ -8,9 +8,9 @@ use Doctrine\ORM\EntityManager;
 
 class EntityManagerFactory
 {
-    public function __invoke(ServiceLocatorInterface $serviceManager)
+    public function __invoke(ServiceLocatorInterface $services)
     {
-        $config = $serviceManager->get('Config');
+        $config = $services->get('Config');
 
         $isDevMode = isset($config['environment']) && $config['environment'] == 'development';
 

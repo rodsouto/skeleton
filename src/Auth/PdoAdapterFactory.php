@@ -4,10 +4,11 @@ namespace App\Auth;
 
 use Aura\Auth\Verifier\PasswordVerifier;
 use Aura\Auth\Adapter\PdoAdapter;
+use Zend\ServiceManager\ServiceLocatorInterface;
 
 class PdoAdapterFactory
 {
-    public function __invoke($services)
+    public function __invoke(ServiceLocatorInterface $services)
     {
         $cols = [
             'users.email', // username
