@@ -36,6 +36,12 @@ class User
      */
     private $name;
 
+    /**
+     * @var \DateTime
+     * @ORM\Column(type="datetime", name="created_at")
+     */
+    private $createdAt;
+
     public function __construct()
     {
         $this->id = Uuid::uuid4();
@@ -110,6 +116,23 @@ class User
     public function setName($name)
     {
         $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param \DateTime $createdAt
+     */
+    public function setCreatedAt(\DateTime $createdAt)
+    {
+        $this->createdAt = $createdAt;
         return $this;
     }
 

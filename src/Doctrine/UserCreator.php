@@ -24,7 +24,8 @@ class UserCreator {
         $user = (new User)
             ->setName($name)
             ->setEmail($email)
-            ->setPassword(password_hash($password, PASSWORD_BCRYPT));
+            ->setPassword(password_hash($password, PASSWORD_BCRYPT))
+            ->setCreatedAt(new \DateTime());
 
         $this->entityManager->persist($user);
         $this->entityManager->flush();
