@@ -6,7 +6,7 @@ use Interop\Container\ContainerInterface;
 use ReflectionClass;
 use Zend\ServiceManager\Factory\AbstractFactoryInterface;
 
-class AbstractActionFactory implements AbstractFactoryInterface
+class AbstractFactory implements AbstractFactoryInterface
 {
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {

@@ -14,4 +14,4 @@ Configuracion de los demas services necesarios
 
 # Dependency Injection
 
-App\AbstractActionFactory inyecta automaticamente todas las dependencias a las clases que estan dentro del namespace App, para esto en el service manager cada clase tiene que estar registrada con su FQCL (Class::class)
+App\AbstractFactory inyecta automaticamente todas las dependencias a las clases que estan dentro del namespace App, para esto en el service manager cada clase tiene que estar registrada con su FQCL (Class::class)

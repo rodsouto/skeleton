@@ -2,7 +2,7 @@
 
 return [
     'abstract_factories' => [
-        App\AbstractActionFactory::class,
+        App\AbstractFactory::class,
     ],
     'factories' => [
 
