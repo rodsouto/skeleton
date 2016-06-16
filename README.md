@@ -9,6 +9,7 @@
 * ramsey/uuid
 * beberlei/assert
 * twig/twig
+* relay/relay
 
 # Config directory
 

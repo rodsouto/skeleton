@@ -1,13 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Middleware;
 
 use Aura\Router\RouterContainer;
-use Zend\Diactoros\Response\SapiEmitter;
-use Zend\Diactoros\ServerRequestFactory;
+use Zend\Diactoros\Response;
+use Zend\Diactoros\ServerRequest;
 use Zend\ServiceManager\ServiceManager;
 
-class Dispatcher {
+class Router {
 
     private $serviceManager;
 
@@ -15,21 +15,11 @@ class Dispatcher {
         $this->serviceManager = $serviceManager;
     }
 
-    public function dispatch() {
+    public function __invoke(ServerRequest $request, Response $response, callable $next) {
 
         $matcher = $this->serviceManager->get(RouterContainer::class)->getMatcher();
 
-        $request = ServerRequestFactory::fromGlobals(
-            $_SERVER,
-            $_GET,
-            $_POST,
-            $_COOKIE,
-            $_FILES
-        );
-
         $route = $matcher->match($request);
-
-        $emiter = new SapiEmitter();
 
         if ($route) {
 
@@ -53,8 +43,7 @@ class Dispatcher {
             $response = $this->serviceManager->get(\App\Action\Error::class)->error($request, $matcher->getFailedRoute());
         }
 
-
-        $emiter->emit($response);
+        return $next($request, $response);
     }
 
 }
