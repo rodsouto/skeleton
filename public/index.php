@@ -26,12 +26,4 @@ $queue = [
 
 $relay = (new RelayBuilder($resolver))->newInstance($queue);
 
-$request = ServerRequestFactory::fromGlobals(
-    $_SERVER,
-    $_GET,
-    $_POST,
-    $_COOKIE,
-    $_FILES
-);
-
-$relay($request, new Response);
+$relay(ServerRequestFactory::fromGlobals(), new Response);
