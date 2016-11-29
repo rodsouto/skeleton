@@ -15,7 +15,7 @@
 
 ## config.php
 
-Configuracion general de la app (base de datos, cache dir, etc), accesible en service manager con get('Config')
+Configuracion general de la app (base de datos, cache dir, etc), accesible en service manager con get(\App\Config\Config::class)
 
 ## routes.php
 

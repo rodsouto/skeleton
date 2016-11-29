@@ -10,17 +10,17 @@ class EntityManagerFactory
 {
     public function __invoke(ServiceLocatorInterface $services)
     {
-        $config = $services->get('Config');
+        $config = $services->get(\App\Config\Config::class);
 
-        $isDevMode = isset($config['environment']) && $config['environment'] == 'development';
+        $isDevMode = isset($config->environment) && $config->environment == 'development';
 
         // TODO
         $cacheDriver = null;
 
-        $ormConfig = Setup::createAnnotationMetadataConfiguration($config['doctrine']['entity_dir'], $isDevMode, $config['cache_dir'], $cacheDriver, false);
+        $ormConfig = Setup::createAnnotationMetadataConfiguration($config->doctrine['entity_dir'], $isDevMode, $config->cache_dir, $cacheDriver, false);
 
-        if (isset($config['default_repository'])) {
-            $ormConfig->setDefaultRepositoryClassName($config['default_repository']);
+        if (isset($config->default_repository)) {
+            $ormConfig->setDefaultRepositoryClassName($config->default_repository);
         }
         
         if ($isDevMode) {
@@ -29,16 +29,16 @@ class EntityManagerFactory
             $ormConfig->setAutoGenerateProxyClasses(false);
         }
 
-        if (!empty($config['doctrine']['logger'])) {
+        if (!empty($config->doctrine['logger'])) {
             $logger = new \Doctrine\DBAL\Logging\DebugStack;
             $ormConfig->setSQLLogger($logger);
         }
 
         $conn = [
-            'dbname' => $config['db']['dbname'],
-            'user' => $config['db']['user'],
-            'password' => $config['db']['password'],
-            'host' => $config['db']['host'],
+            'dbname' => $config->db['dbname'],
+            'user' => $config->db['user'],
+            'password' => $config->db['password'],
+            'host' => $config->db['host'],
             'driver' => 'pdo_mysql',
             'charset' => 'utf8',
             'driverOptions' => [

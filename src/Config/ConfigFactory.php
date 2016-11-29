@@ -6,6 +6,6 @@ class ConfigFactory
 {
     public function __invoke()
     {
-        return include __DIR__ . '/../../config/config.php';
+        return new Config(include __DIR__ . '/../../config/config.php');
     }
 }

@@ -6,7 +6,7 @@ return [
     ],
     'factories' => [
 
-        'Config' => App\Config\ConfigFactory::class,
+        App\Config\Config::class => App\Config\ConfigFactory::class,
 
         Aura\Router\RouterContainer::class => App\Router\RouterFactory::class,
 
