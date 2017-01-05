@@ -2,6 +2,7 @@
 
 namespace App\Action\Login;
 
+use Aura\Router\Generator;
 use Aura\Session\Segment;
 use Zend\Diactoros\ServerRequest;
 use Aura\Auth\Auth;
@@ -15,11 +16,13 @@ final class Post {
     private $auth;
     private $loginService;
     private $segment;
+    private $route;
 
-    public function __construct(Auth $auth, LoginService $loginService, Segment $segment) {
+    public function __construct(Auth $auth, LoginService $loginService, Segment $segment, Generator $route) {
         $this->auth = $auth;
         $this->loginService = $loginService;
         $this->segment = $segment;
+        $this->route = $route;
     }
 
     public function index(ServerRequest $request) {
@@ -51,7 +54,7 @@ final class Post {
             }
 
             $this->segment->setFlash('error', $error);
-            return $this->redirect('/login');
+            return $this->redirect($this->route->generate('login'));
         }
 
         return $this->redirect('/');

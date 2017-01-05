@@ -2,16 +2,16 @@
 
 namespace App\Twig;
 
+use Aura\Router\Generator;
 use Twig_Extension;
-use Aura\Router\RouterContainer;
 
 class RouteExtension extends Twig_Extension
 {
 
-    private $routerContainer;
+    private $route;
 
-    public function __construct(RouterContainer $routerContainer) {
-        $this->routerContainer = $routerContainer;
+    public function __construct(Generator $route) {
+        $this->route = $route;
     }
 
     public function getName()
@@ -21,10 +21,8 @@ class RouteExtension extends Twig_Extension
 
     public function getFunctions()
     {
-        $generator = $this->routerContainer->getGenerator();
-
         return [
-            'route' => new \Twig_SimpleFunction('route', [$generator, 'generate'])
+            'route' => new \Twig_SimpleFunction('route', [$this->route, 'generate'])
         ];
     }
 }

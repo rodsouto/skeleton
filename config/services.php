@@ -9,6 +9,7 @@ return [
         App\Config\Config::class => App\Config\ConfigFactory::class,
 
         Aura\Router\RouterContainer::class => App\Router\RouterFactory::class,
+        Aura\Router\Generator::class => App\Router\GeneratorFactory::class,
 
         Twig_Environment::class => App\Twig\TwigFactory::class,
 
