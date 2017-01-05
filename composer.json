@@ -9,7 +9,8 @@
         "aura/session": "^2.0",
         "ramsey/uuid": "^3.4",
         "beberlei/assert": "^2.5",
-        "relay/relay": "^1.1"
+        "relay/relay": "^1.1",
+        "roave/security-advisories": "dev-master"
     },
     "autoload": {
         "classmap": ["src/"]
