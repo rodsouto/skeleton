@@ -8,7 +8,6 @@ use Aura\Session\Segment;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use Zend\Diactoros\ServerRequest;
 use Aura\Auth\Auth;
-use Aura\Auth\Service\LoginService;
 use App\Action\ActionTrait;
 
 final class Post {

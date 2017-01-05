@@ -17,6 +17,7 @@ class Router {
 
     public function __invoke(ServerRequest $request, Response $response, callable $next) {
 
+        /** @var \Aura\Router\Matcher $matcher */
         $matcher = $this->serviceManager->get(RouterContainer::class)->getMatcher();
 
         $route = $matcher->match($request);

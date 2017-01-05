@@ -129,6 +129,7 @@ class User
 
     /**
      * @param \DateTime $createdAt
+     * @return User
      */
     public function setCreatedAt(\DateTime $createdAt)
     {

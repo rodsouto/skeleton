@@ -46,7 +46,7 @@ final class Post {
                     break;
                 default:
                     /* TODO: log error */
-                    $error = 'Ocurrió un error inesperado';
+                    $error = 'OcurriÃ³ un error inesperado';
                 break;
             }
 

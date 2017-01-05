@@ -2,7 +2,6 @@
 
 namespace App\Action;
 
-use Aura\Auth\Auth;
 use Zend\Diactoros\ServerRequest;
 use App\Response\TwigResponse;
 use App\Doctrine\Finder;
