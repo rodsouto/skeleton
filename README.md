@@ -27,7 +27,7 @@ Configuracion de los demas services necesarios
 
 # Dependency Injection
 
-App\AbstractFactory inyecta automaticamente todas las dependencias a las clases que estan dentro del namespace App, para esto en el service manager cada clase tiene que estar registrada con su FQCL (Class::class)
+Por default se usa https://zendframework.github.io/zend-servicemanager/reflection-abstract-factory/
 
 # Doctrine ORM
 

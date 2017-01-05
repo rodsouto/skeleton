@@ -2,7 +2,7 @@
 
 return [
     'abstract_factories' => [
-        App\AbstractFactory::class,
+        Zend\ServiceManager\AbstractFactory\ReflectionBasedAbstractFactory::class,
     ],
     'factories' => [
 
